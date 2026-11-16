@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Mahali - The Series</title>
+    <title>Aakash Mahali Official - Portfolio</title>
     <style>
         :root {
             --netflix-red: #E50914;
@@ -17,17 +17,20 @@
             color: var(--text-color);
             font-family: 'Helvetica Neue', Arial, sans-serif;
             overflow-x: hidden;
+            display: flex;
+            justify-content: center;
         }
 
         .hero {
             position: relative;
             min-height: 100vh;
+            width: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding-left: 50px;
-            padding-top: 50px;
-            padding-bottom: 50px;
+            padding: 50px 20px;
             overflow: hidden;
+            box-sizing: border-box;
         }
 
         .bg-image {
@@ -36,183 +39,313 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(20,20,20,0.85) 40%, rgba(20,20,20,0.4)), url('https://i.postimg.cc/SKG10x04/ac8286d81610a6625089ef8186315285.jpg');
-            background-size: cover;
-            background-position: center;
-            animation: zoomEffect 10s infinite alternate ease-in-out;
+            background: radial-gradient(circle at center, #2c2c2c 0%, #141414 100%);
             z-index: 0;
-        }
-
-        @keyframes zoomEffect {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
         }
 
         .content {
             max-width: 800px;
+            width: 100%;
             z-index: 1;
-            animation: floatEffect 4s infinite ease-in-out;
-        }
-
-        @keyframes floatEffect {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .series-tag {
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             color: var(--netflix-red);
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            animation: pulseText 2s infinite alternate;
-        }
-
-        @keyframes pulseText {
-            0% { opacity: 0.8; }
-            100% { opacity: 1; }
-        }
-
-        h1 {
-            font-size: 4rem;
-            margin: 0 0 20px 0;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.9);
             display: flex;
-            flex-direction: column;
+            gap: 12px;
         }
 
-        .word-wrapper {
-            overflow: hidden;
-            line-height: 1.1;
-        }
-
-        .word {
+        .tag-word {
             display: inline-block;
-            animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: wordStagger 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             opacity: 0;
-            transform: translateY(100%);
+            transform: translateY(20px);
         }
 
-        .word:nth-child(1) {
-            animation-delay: 0.3s;
-        }
+        .tag-word:nth-child(1) { animation-delay: 0.2s; }
+        .tag-word:nth-child(2) { animation-delay: 0.4s; }
+        .tag-word:nth-child(3) { animation-delay: 0.6s; }
+        .tag-word:nth-child(4) { animation-delay: 0.8s; }
 
-        .word:nth-child(2) {
-            animation-delay: 0.8s;
-        }
-
-        @keyframes slideUpFade {
-            0% {
-                opacity: 0;
-                transform: translateY(100%);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .info-section {
-            margin-bottom: 30px;
-            animation: fadeInUp 1.5s ease-out forwards;
-            animation-delay: 1.2s;
-            opacity: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        @keyframes wordStagger {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        h1 {
+            font-size: 4.5rem;
+            margin: 0 0 30px 0;
+            text-shadow: 0 6px 15px rgba(0,0,0,0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .word-wrapper {
+            overflow: hidden;
+            line-height: 1.1;
+            width: 100%;
+        }
+
+        .word-deep {
+            display: inline-block;
+            color: var(--netflix-red);
+            animation: slotMachineDeep 2s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+            opacity: 0;
+        }
+
+        .word-mahali {
+            display: inline-block;
+            color: #FFFFFF;
+            animation: slotMachineMahali 2s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        @keyframes slotMachineDeep {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%) rotateX(-90deg);
+                filter: blur(10px);
+            }
+            60% {
+                transform: translateY(10%) rotateX(10deg);
+                filter: blur(2px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes slotMachineMahali {
+            0% {
+                opacity: 0;
+                transform: translateY(100%) rotateX(90deg);
+                filter: blur(10px);
+            }
+            60% {
+                transform: translateY(-10%) rotateX(-10deg);
+                filter: blur(2px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+                filter: blur(0);
+            }
+        }
+
+        .info-container {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 30px;
+            border-top: 4px solid var(--netflix-red);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            animation: fadeInSection 1.5s ease-out 1s forwards;
+            opacity: 0;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        @keyframes fadeInSection {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .info-group {
+            width: 100%;
+        }
+
         .info-title {
             color: var(--netflix-red);
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 5px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
         .info-desc {
             font-size: 1.2rem;
-            color: #fff;
-            line-height: 1.6;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            color: #E5E5E5;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .insta-link {
-            color: var(--netflix-red);
-            font-weight: bold;
+        .highlight-text {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            width: 100%;
+            animation: floatIcons 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcons {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
             text-decoration: none;
+            color: #aaa;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
         }
 
-        .insta-link:hover {
-            text-decoration: underline;
-        }
-
-        .animated-badge {
-            margin-top: 30px;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, #ff1a1a, #800000);
+        .icon-circle {
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
+            background-color: #1f1f1f;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: pulseBadge 1.5s infinite alternate;
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+            border: 2px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
         }
 
-        .animated-badge::after {
-            content: '';
-            border-left: 20px solid white;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            margin-left: 5px;
+        .icon-btn svg {
+            width: 26px;
+            height: 26px;
+            fill: #fff;
         }
 
-        @keyframes pulseBadge {
-            0% { transform: scale(1); filter: brightness(1); }
-            100% { transform: scale(1.15); filter: brightness(1.3); }
+        .icon-btn:hover {
+            color: #fff;
         }
 
+        .icon-btn:hover .icon-circle {
+            border-color: var(--netflix-red);
+            background-color: var(--netflix-red);
+            transform: translateY(-5px) scale(1.05);
+        }
     </style>
 </head>
 <body>
 
+    <audio id="bg-audio" loop>
+        <source src="https://www.image2url.com/r2/default/audio/1794843495198-c7914841-67cf-48c4-898a-24c708a787a1.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="hero">
         <div class="bg-image"></div>
         <div class="content">
-            <div class="series-tag">A DEEP MAHALI ORIGINAL</div>
+            <div class="series-tag">
+                <span class="tag-word">I</span>
+                <span class="tag-word">AM</span>
+                <span class="tag-word">AAKASH</span>
+                <span class="tag-word">MAHALI</span>
+            </div>
             <h1>
-                <div class="word-wrapper"><span class="word">DEEP</span></div>
-                <div class="word-wrapper"><span class="word">MAHALI</span></div>
+                <div class="word-wrapper"><span class="word-deep">DEEP</span></div>
+                <div class="word-wrapper"><span class="word-mahali">MAHALI</span></div>
             </h1>
 
-            <div class="info-section">
-                <div class="info-title">Technical Engineering</div>
-                <div class="info-desc">Dedicated Technical Engineer.</div>
+            <div class="info-container">
+                <div class="info-group">
+                    <div class="info-title">Core Engineering</div>
+                    <div class="info-desc">Dedicated <span class="highlight-text">Technical Engineer</span> specializing in <span class="highlight-text">PLC Programming</span> and industrial automation systems.</div>
+                </div>
 
-                <div class="info-title">Automation & Control</div>
-                <div class="info-desc">PLC Programming, SCADA. High-demand industrial systems.</div>
+                <div class="info-group">
+                    <div class="info-title">Robotics & Philosophy</div>
+                    <div class="info-desc"><span class="highlight-text">Robotics Engineer</span> focused on advanced kinematics and system design. Also exploring the philosophical side of technology as a thinker and coder.</div>
+                </div>
 
-                <div class="info-title">Robotics</div>
-                <div class="info-desc">System Design & Kinematics. Building the future of automation.</div>
+                <div class="info-group">
+                    <div class="info-title">Featured Innovation</div>
+                    <div class="info-desc">Developer of an automated <span class="highlight-text">Accident SOS System</span> designed to detect collisions and trigger emergency calls automatically.</div>
+                </div>
 
-                <div class="info-title">Contact</div>
-                <div class="info-desc">Instagram: <a href="https://instagram.com/Xix9sky" class="insta-link" target="_blank">@Xix9sky</a><br>Jamshedpur, Jharkhand, India - 832301</div>
+                <div class="info-group">
+                    <div class="info-title">Personal Profile</div>
+                    <div class="info-desc">Born on <span class="highlight-text">23 October 2002</span>. Based in <span class="highlight-text">Jamshedpur, Jharkhand, India</span>.</div>
+                </div>
+
+                <div class="social-buttons">
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/Xix9sky" class="icon-btn" target="_blank">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
+                        Instagram
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/share/1A2PcAk8MY/" class="icon-btn" target="_blank">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.831C11.385 0 10 1.535 10 3.416V5H7v3h3v16h5V8h3.333l.423-3H15v-1.11c0-.309.206-.556.5-.556h1.5V0h-2.01C12.19 0 10 2.152 10 5.014V8h-1z"/></svg>
+                        </div>
+                        Facebook
+                    </a>
+                    <!-- Twitter / X -->
+                    <a href="https://twitter.com/deepbesra23" class="icon-btn" target="_blank">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </div>
+                        Twitter / X
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:deepbesra23@gmail.com" class="icon-btn">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"/></svg>
+                        </div>
+                        Email
+                    </a>
+                </div>
             </div>
-
-            <div class="animated-badge"></div>
         </div>
     </div>
 
+    <script>
+        const audio = document.getElementById('bg-audio');
+        function playAudio() {
+            if (audio.paused) {
+                audio.play().catch(e => console.log(e));
+            }
+        }
+        document.addEventListener('click', playAudio, { once: true });
+        document.addEventListener('touchstart', playAudio, { once: true });
+    </script>
 </body>
 </html>
