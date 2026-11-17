@@ -60,38 +60,39 @@
             font-size: 1.3rem;
             margin-bottom: 15px;
             text-transform: uppercase;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+            text-shadow: 0 0 15px rgba(229,9,20,0.8);
             display: flex;
             gap: 12px;
+            animation: slideInDown 1s ease-out forwards;
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .tag-word {
             display: inline-block;
-            animation: wordStagger 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .tag-word:nth-child(1) { animation-delay: 0.2s; }
-        .tag-word:nth-child(2) { animation-delay: 0.4s; }
-        .tag-word:nth-child(3) { animation-delay: 0.6s; }
-        .tag-word:nth-child(4) { animation-delay: 0.8s; }
-
-        @keyframes wordStagger {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         h1 {
             font-size: 4.5rem;
             margin: 0 0 30px 0;
-            text-shadow: 0 6px 15px rgba(0,0,0,0.9);
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
+            animation: slideInUp 1s ease-out forwards, floatText 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes floatText {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
         }
 
         .word-wrapper {
@@ -103,50 +104,26 @@
         .word-deep {
             display: inline-block;
             color: var(--netflix-red);
-            animation: slotMachineDeep 2s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+            animation: slideLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             opacity: 0;
         }
 
         .word-mahali {
             display: inline-block;
             color: #FFFFFF;
-            animation: slotMachineMahali 2s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+            animation: slideRight 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             animation-delay: 0.3s;
             opacity: 0;
         }
 
-        @keyframes slotMachineDeep {
-            0% {
-                opacity: 0;
-                transform: translateY(-100%) rotateX(-90deg);
-                filter: blur(10px);
-            }
-            60% {
-                transform: translateY(10%) rotateX(10deg);
-                filter: blur(2px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) rotateX(0deg);
-                filter: blur(0);
-            }
+        @keyframes slideLeft {
+            from { transform: translateX(-100px); opacity: 0; filter: blur(10px); }
+            to { transform: translateX(0); opacity: 1; filter: blur(0); }
         }
 
-        @keyframes slotMachineMahali {
-            0% {
-                opacity: 0;
-                transform: translateY(100%) rotateX(90deg);
-                filter: blur(10px);
-            }
-            60% {
-                transform: translateY(-10%) rotateX(-10deg);
-                filter: blur(2px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) rotateX(0deg);
-                filter: blur(0);
-            }
+        @keyframes slideRight {
+            from { transform: translateX(100px); opacity: 0; filter: blur(10px); }
+            to { transform: translateX(0); opacity: 1; filter: blur(0); }
         }
 
         .info-container {
@@ -156,7 +133,7 @@
             border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-            animation: fadeInSection 1.5s ease-out 1s forwards;
+            animation: dropIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards;
             opacity: 0;
             width: 100%;
             box-sizing: border-box;
@@ -165,15 +142,9 @@
             gap: 25px;
         }
 
-        @keyframes fadeInSection {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        @keyframes dropIn {
+            0% { transform: scale(0.9) translateY(-30px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
         }
 
         .info-group {
@@ -212,12 +183,8 @@
         }
 
         @keyframes floatIcons {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .icon-btn {
